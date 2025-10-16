@@ -8,6 +8,7 @@ jobs:
     strategy:
       matrix:
         python-version: [3.8, 3.9, "3.10", "3.11"]
+
     steps:
       - uses: actions/checkout@v4
 
@@ -22,7 +23,9 @@ jobs:
           pip install -r requirements.txt
 
       - name: Display Python version
-        run: python --version
+        run: |
+          echo "🐍 Running with Python version:"
+          python --version
 
       - name: Run tests
         run: pytest
