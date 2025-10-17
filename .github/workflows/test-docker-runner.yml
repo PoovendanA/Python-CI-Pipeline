@@ -1,0 +1,14 @@
+name: Test Docker Runner
+
+on:
+  push:
+    branches:
+      - main   # Or any branch you want to trigger this workflow
+
+jobs:
+  build:
+    runs-on: [docker-runner]  # Only runners with this label can pick up this job
+    steps:
+      - uses: actions/checkout@v3
+      - run: echo "Hello from Dockerized Runner!"
+
